@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Recipe {
     private int id;
@@ -10,9 +8,6 @@ public class Recipe {
     private List<String> ingredients;
     private int timeCook;
 
-
-
-
     public Recipe(String name, int timeCook, List<String>ingredients) {
         this.name = name;
         this.timeCook = timeCook;
@@ -20,13 +15,17 @@ public class Recipe {
         this.id = generateId++;
     }
 
-
-
+    public void showRecipe(){
+        System.out.println("ID: " + getId());
+        System.out.println("Назва: " + getName());
+        System.out.println("Час приготування: " + getTimeCook() + " хв.");
+        System.out.println("Інградієнти, необхідні для приготування: " + getIngredients());
+        System.out.println();
+    }
 
     public int getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }
@@ -35,6 +34,9 @@ public class Recipe {
     }
     public int getTimeCook() {
         return timeCook;
+    }
+    public int getQuantityIngredients(){
+        return ingredients.size();
     }
 
     public void setName(String name) {
@@ -47,11 +49,4 @@ public class Recipe {
         this.timeCook = timeCook;
     }
 
-    @Override
-    public String toString() {
-        return "ID: " + id +
-                "\nНазва: " + name +
-                "\nЧас приготування: " + timeCook + " хв" +
-                "\nІнгредієнти: " + String.join(", ", ingredients);
-    }
 }
